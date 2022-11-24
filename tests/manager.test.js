@@ -14,3 +14,6 @@
 
 // getRole() // Returns 'Employee'
 
+function generateManager(data) {
+    
+}

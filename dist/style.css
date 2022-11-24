@@ -1,0 +1,11 @@
+.profile {
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    width: 30%;
+    padding: 5px;
+}
+.profileHeader {
+    background-color: antiquewhite;
+    padding: 5px;
+    border-radius: 15px 15px 0px 0px;
+}

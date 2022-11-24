@@ -15,3 +15,7 @@
 // getGithub()
 
 // getRole() 
+
+function generateEngineer(data){
+    
+}

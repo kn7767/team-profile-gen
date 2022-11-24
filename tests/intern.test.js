@@ -15,3 +15,7 @@
 // getSchool()
 
 // getRole()
+
+function generateIntern(data) {
+    
+}
