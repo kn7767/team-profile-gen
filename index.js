@@ -1,18 +1,17 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// var generateEmployee = require('./lib/employee.js');
-// var generateEngineer = require('./lib/engineer.js');
-// var generateIntern = require('./lib/intern.js');
-// var generateManager = require('./lib/manager.js');
-var generateEmployee = require('./lib/generateHTML');
+var generateEmployee = require('./lib/employee');
+var generateEngineer = require('./lib/engineer.js');
+var generateIntern = require('./lib/intern.js');
+var generateManager = require('./lib/manager.js');
 // const { create } = require('domain');
 
 const getPosition = [
     {
         type: 'list',
         name: 'position',
-        message: "Welcome to the team profile generator. To start, pick the first team member's position: ",
+        message: "Pick a position: ",
         choices: ['Employee', 'Engineer', 'Intern', 'Manager']
 
     }
@@ -46,11 +45,25 @@ const getEmployee = [
 
 const getEngineer = [
     {
-        type: 'list',
-        name: 'additionalMembers',
-        message: "Add more profiles?",
-        choices: ['Yes, add more', 'No, I am finished']
-    }
+        type: 'input',
+        name: 'engineerName',
+        message: "Enter engineer name: "
+    },
+    {
+        type: 'input',
+        name: 'engineerid',
+        message: "Enter engineer id: "
+    },
+    {
+        type: 'input',
+        name: 'engineerEmail',
+        message: "Enter engineer email: "
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: "Enter engineer GitHub username: "
+    },
 ]
 const getIntern = [
 
@@ -64,21 +77,24 @@ const addMore = [
         type: 'list',
         name: 'additionalMembers',
         message: "Add more profiles?",
-        choices: ['Yes, add more', 'No, generate the profiles']
+        choices: ['Yes, add more', 'No, generate the site']
     }
 ]
 
 function addProfile() {
     inquirer
     .prompt(addMore)
-    .then(function(additionalMembers) {
-        //needs to be debugged
-        if (additionalMembers === 'No, generate the profile') {
-            console.log('Generating site...')
+    .then(function() {
+        if ('Yes, add more') {
+            console.log('Create another profile')
+            createProfiles();
+        } 
+        //else statement needs to be debugged
+        //else if (...) doesn't work? 
+        else {
+            console.log('====Generating site====')
             // fs.writeFile();
-        } else if (additionalMembers === 'Yes, add more') {
-            console.log('Creating another profile...')
-            createProfile();
+            return;
         }}
     )
 }
@@ -103,10 +119,19 @@ function createEngineerProfile() {
     inquirer
     .prompt(getEngineer)
     .then(function(engineerData) {
-        console.log(engineerData)
+        let engineerResult = generateEngineer(engineerData);
+        console.log(engineerResult);
+        addProfile();
     })
 }
-function createProfile() {
+function createInternProfile() {
+
+}
+
+function createManagerPofile() {
+
+}
+function createProfiles() {
     inquirer
     .prompt(getPosition)
     .then(function(position){
@@ -121,7 +146,7 @@ function createProfile() {
         }
     })
 }
-createProfile();
+createProfiles();
 
 
 // function init() {
