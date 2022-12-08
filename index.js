@@ -34,12 +34,12 @@ const getEmployee = [
     {
         type: 'input',
         name: 'employeeid',
-        message: "Enter their employee ID #: "
+        message: "Enter employee ID #: "
     },
     {
         type: 'input',
         name: 'employeeEmail',
-        message: "Enter their email address: "
+        message: "Enter employee email address: "
     }
 ]
 
@@ -66,7 +66,16 @@ const getEngineer = [
     },
 ]
 const getIntern = [
-
+    {
+        type: 'input',
+        name: 'internName',
+        message: "Enter intern name: "
+    },
+    {
+        type: 'input',
+        name: 'intern',
+        message: "Hello"
+    }
 ]
 const getManager = [
 
@@ -81,36 +90,11 @@ const addMore = [
     }
 ]
 
-function addProfile() {
-    inquirer
-    .prompt(addMore)
-    .then(function() {
-        if ('Yes, add more') {
-            console.log('Create another profile')
-            createProfiles();
-        } 
-        //else statement needs to be debugged
-        //else if (...) doesn't work? 
-        else {
-            console.log('====Generating site====')
-            // fs.writeFile();
-            return;
-        }}
-    )
-}
-
-// function writeFile(fileName, data) {
-//     fs.writeHTML(fileName, data, error => {
-//         if (error) {
-//             throw error;
-//         } else console.log('HTML has been created.')
-//     })
-// }
 function createEmployeeProfile() {
     inquirer
     .prompt(getEmployee)
     .then(function(employeeData){
-        let employeeResult = generateEmployee(employeeData)
+        let employeeResult = generateEmployee(employeeData);
         console.log(employeeResult);
         addProfile();
     })
@@ -125,27 +109,63 @@ function createEngineerProfile() {
     })
 }
 function createInternProfile() {
-
+    inquirer
+    .prompt(getIntern)
+    .then(function(internData) {
+        let internResult = generateIntern(internData);
+        console.log(internResult);
+        addProfile();
+    })
 }
 
 function createManagerPofile() {
 
 }
+
+//building all position profiles
 function createProfiles() {
     inquirer
     .prompt(getPosition)
     .then(function(position){
         if (position = "Employee") {
             createEmployeeProfile();
-        } else if (position = "Engineer") {
+        } 
+        else if (position = "Engineer") {
             createEngineerProfile();
-        } else if (position = "Intern") {
+        } 
+        else if (position = "Intern") {
             createInternProfile();
-        } else if (position = "Manager") {
+        } 
+        else if (position = "Manager") {
             createManagerPofile();
         }
+        for(let i = 0; i < position.length; i++);
     })
 }
+function writeFile(fileName, data) {
+    fs.writeHTML(fileName, data, error => {
+        if (error) {
+            throw error;
+        } else console.log('HTML has been created.')
+    })
+}
+
+function addProfile() {
+    inquirer
+    .prompt(addMore)
+    .then(function() {
+        if ('Yes, add more') {
+            console.log('Create another profile:')
+            // createProfiles();
+        } else {
+            console.log('====Generating site====')
+            // fs.writeFile();
+            return;
+        } 
+    }
+    )
+}
+
 createProfiles();
 
 
