@@ -1,11 +1,31 @@
-.profile {
-    border: 1px solid lightgray;
-    border-radius: 15px;
-    width: 30%;
-    padding: 5px;
+body {
+    background-color:floralwhite;
 }
-.profileHeader {
-    background-color: antiquewhite;
-    padding: 5px;
-    border-radius: 15px 15px 0px 0px;
+.title {
+    text-align: center;
+}
+.teamcards {
+    align-items: center;
+}
+.card {
+    border: 1px lightgray solid;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: white;
+
+}
+.cardheader {
+    border-bottom: 1px lightgray solid;
+}
+.name {
+    font-size: 30px;
+    padding-left: 15px;
+}
+.role {
+    font-size: 20px;
+    padding-left: 15px;
+}
+.email, .id, .office, .github, .school {
+    padding-left: 15px;
+    padding-bottom: 10px;
 }
