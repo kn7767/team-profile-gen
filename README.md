@@ -1,23 +1,29 @@
-## User Story
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
+# Team Profile Generator 
 
-## Acceptance Criteria
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
+[GitHub link]https://github.com/kn7767/team-profile-gen
+
+## Visual
+[Video]https://drive.google.com/file/d/1AGYBGJdpIUNsKsooQI8ZQfogh3ZMF8vP/view 
+
+## Description
+This application is used to create employee profiles to make it easier to locate their ID numbers, emails, and other important information.
+
+# Table of Contents 
+* [Visual](#visual)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Questions](#questions)
+
+# Installation
+Inquirer
+
+# Usage
+After downloading all the necessary installatinos, use this app by starting by running "node .\index.js" in your integrated terminal in the location of the file, then answers the prompts. After you finish filling out your teams information, an HTML file will be created in the "dist" folder containing all of your team members info and roles.
+
+# License
+None
+
+# Questions
+If you have any questions about the repository contact Kaylee Nguyen directly at: knguy219@ucr.edu
+
